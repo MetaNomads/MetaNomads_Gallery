@@ -73,7 +73,7 @@ namespace Autohand{
                 var time = i/60f;
                 lineArr[i] = aimer.transform.position;
                 lineArr[i] += transform.forward*time*distanceMultiplyer*15;
-                lineArr[i].y += curveStrength * (time - Mathf.Pow(9.8f*0.5f*time, 2));
+                lineArr[i].y += curveStrength * (time - Mathf.Pow(9.8f*0.5f*time, 1.65f));
                 lineList.Add(lineArr[i]);
                 if(i != 0) {
                     if(Physics.Raycast(lineArr[i-1], lineArr[i]-lineArr[i-1], out aimHit, Vector3.Distance(lineArr[i], lineArr[i-1]), ~Hand.GetHandsLayerMask(), QueryTriggerInteraction.Ignore)) {

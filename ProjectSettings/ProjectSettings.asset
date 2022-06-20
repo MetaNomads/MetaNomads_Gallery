@@ -843,7 +843,7 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     Build: 0
-    Collab: 1
+    Collab: 0
     Game Performance: 0
     Legacy Analytics: 0
     Purchasing: 0
@@ -862,7 +862,7 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 1
-  cloudProjectId: 86222f1c-c5a8-4a27-9775-b55c0b3cb2ba
+  cloudProjectId: c379dbbf-9895-475d-bbf2-f2569c50641f
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: MetaNomads_Gallery

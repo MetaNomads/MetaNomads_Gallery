@@ -131,6 +131,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 271303542, guid: ada9279a2324abb4d90bf6e369eaa9f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 364032247, guid: ada9279a2324abb4d90bf6e369eaa9f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577838259, guid: ada9279a2324abb4d90bf6e369eaa9f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907517616, guid: ada9279a2324abb4d90bf6e369eaa9f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1639125106728771988, guid: ada9279a2324abb4d90bf6e369eaa9f3,
         type: 3}
       propertyPath: m_IsActive
@@ -141,6 +157,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2696797647273992142, guid: ada9279a2324abb4d90bf6e369eaa9f3,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3377122441347138945, guid: ada9279a2324abb4d90bf6e369eaa9f3,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5223543268425141555, guid: ada9279a2324abb4d90bf6e369eaa9f3,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502226382291604337, guid: ada9279a2324abb4d90bf6e369eaa9f3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502226382495599404, guid: ada9279a2324abb4d90bf6e369eaa9f3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651384050899127509, guid: ada9279a2324abb4d90bf6e369eaa9f3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651384051773101192, guid: ada9279a2324abb4d90bf6e369eaa9f3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6707951067419483808, guid: ada9279a2324abb4d90bf6e369eaa9f3,
         type: 3}
       propertyPath: handLeft
@@ -149,6 +200,16 @@ PrefabInstance:
     - target: {fileID: 6707951067419483808, guid: ada9279a2324abb4d90bf6e369eaa9f3,
         type: 3}
       propertyPath: handRight
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432238099749567481, guid: ada9279a2324abb4d90bf6e369eaa9f3,
+        type: 3}
+      propertyPath: fingers.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432238099749567481, guid: ada9279a2324abb4d90bf6e369eaa9f3,
+        type: 3}
+      propertyPath: fingers.Array.data[4]
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7942002210973373747, guid: ada9279a2324abb4d90bf6e369eaa9f3,
@@ -219,6 +280,11 @@ PrefabInstance:
     - target: {fileID: 8086603477119862099, guid: ada9279a2324abb4d90bf6e369eaa9f3,
         type: 3}
       propertyPath: turnController
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8188720497471464633, guid: ada9279a2324abb4d90bf6e369eaa9f3,
+        type: 3}
+      propertyPath: controller
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []

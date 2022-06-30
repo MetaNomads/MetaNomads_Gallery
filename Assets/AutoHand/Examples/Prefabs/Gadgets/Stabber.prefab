@@ -37,6 +37,7 @@ Transform:
   m_LocalRotation: {x: 0.64698565, y: 0.48743954, z: -0.15583761, w: 0.56526715}
   m_LocalPosition: {x: 1.0513675, y: 1.1840001, z: 5.604107}
   m_LocalScale: {x: 0.021680456, y: 0.13999999, z: 0.021680463}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,6 +61,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -130,13 +132,16 @@ MonoBehaviour:
   throwPower: 1
   jointBreakForce: 7500
   showAdvancedSettings: 0
-  grabType: 0
   handType: 0
+  grabType: 0
+  useGentleGrab: 0
   makeChildrenGrabbable: 1
   pullApartBreakOnly: 1
   customGrabJoint: {fileID: 0}
   ignoreReleaseTime: 0.25
   grabPriorityWeight: 1
+  heldPositionOffset: {x: 0, y: 0, z: 0}
+  heldRotationOffset: {x: 0, y: 0, z: 0}
   jointedBodies: []
   heldIgnoreColliders: []
   showEvents: 1
@@ -163,8 +168,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   lockHandOnGrab: 0
-  heldPositionOffset: {x: 0, y: 0, z: 0}
-  heldRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &8542799878212124652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,8 +246,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ignoreMe: 0
+  poseEnabled: 1
   poseName: 
   poseIndex: 0
+  singleHanded: 0
+  showAdvanced: 1
+  positionWeight: 1
+  rotationWeight: 1
+  linkedPoses: []
   showEditorTools: 1
   poseScriptable: {fileID: 0}
   editorHand: {fileID: 0}
@@ -364,8 +373,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ignoreMe: 0
+  poseEnabled: 1
   poseName: 
   poseIndex: 0
+  singleHanded: 0
+  showAdvanced: 1
+  positionWeight: 1
+  rotationWeight: 1
+  linkedPoses: []
   showEditorTools: 1
   poseScriptable: {fileID: 0}
   editorHand: {fileID: 0}
@@ -487,8 +502,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ignoreMe: 0
+  poseEnabled: 1
   poseName: 
   poseIndex: 1
+  singleHanded: 0
+  showAdvanced: 1
+  positionWeight: 1
+  rotationWeight: 1
+  linkedPoses: []
   showEditorTools: 1
   poseScriptable: {fileID: 0}
   editorHand: {fileID: 0}
@@ -608,8 +629,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ignoreMe: 0
+  poseEnabled: 1
   poseName: 
   poseIndex: 1
+  singleHanded: 0
+  showAdvanced: 1
+  positionWeight: 1
+  rotationWeight: 1
+  linkedPoses: []
   showEditorTools: 1
   poseScriptable: {fileID: 0}
   editorHand: {fileID: 0}

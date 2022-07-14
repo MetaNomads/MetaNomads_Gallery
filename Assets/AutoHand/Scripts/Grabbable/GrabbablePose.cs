@@ -38,7 +38,7 @@ namespace Autohand{
         [HideInInspector]
         public bool showEditorTools = true;
         [Tooltip("Scriptable options NOT REQUIRED -> Create scriptable throught [Auto Hand/Custom Pose]")]
-        [HideInInspector]
+        //[HideInInspector]
         public HandPoseScriptable poseScriptable;
 
         [Tooltip("Used to pose for the grabbable")]
@@ -62,6 +62,15 @@ namespace Autohand{
         protected virtual void Awake() {
             for(int i = 0; i < linkedPoses.Length; i++)
                 linkedPoses[i].poseEnabled = false;
+            
+            // CrAzY#3398 : Hack : This allows you to use Auto Hand Custom Pose scriptable asset files with different grabbables, which enables you to share created poses.
+            if (poseScriptable != null)
+            {
+                if (poseScriptable.leftSaved)
+                    leftPoseSet = true;
+                if (poseScriptable.rightSaved)
+                    rightPoseSet = true;
+            }
         }
 
 

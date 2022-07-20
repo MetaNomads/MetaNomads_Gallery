@@ -57,15 +57,6 @@ namespace Autohand {
                 minRange = maxRange;
                 maxRange = temp;
             }
-
-            // CrAzY#3398 : Hack : This allows you to use Auto Hand Custom Pose scriptable asset files with different grabbables, which enables you to share created poses.
-            if (poseScriptable != null)
-            {
-                if (poseScriptable.leftSaved)
-                    leftPoseSet = true;
-                if (poseScriptable.rightSaved)
-                    rightPoseSet = true;
-            }
         }
 
         public override HandPoseData GetHandPoseData(Hand hand) {

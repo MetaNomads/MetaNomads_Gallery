@@ -1,3 +1,14 @@
+V3.1.2
+Bug Fixes
+- Fixed broken prefab link in the Oculus Integration Hand Tracking package
+- Fixed bug with rotationg platforms
+- Fixed hand offsets for OpenXR demo
+
+V3.1.1
+Bug Fixes
+- Fixed broken prefab links in the Oculus Integration package
+- Fixed broken/outdated documenation link
+
 V3.1
 New Features
 - Improved documentation and moved it to a better website

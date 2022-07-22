@@ -26,6 +26,7 @@ namespace Autohand {
         }
 
 
+
         [AutoHeader("Auto Hand Player")]
         public bool ignoreMe;
 
@@ -103,6 +104,8 @@ namespace Autohand {
         public Vector3 climbingStrength = new Vector3(20f, 20f, 20f);
         public float climbingAcceleration = 30f;
         public float climbingDrag = 5f;
+        [Tooltip("Inscreases the step height while climbing up to make it easier to step up onto a surface")]
+        public float climbUpStepHeightMultiplier = 1;
 
         [AutoToggleHeader("Enable Pushing")]
         [Tooltip("Whether or not the player can use Pushable objects (Objects with the Pushable component)")]
@@ -112,6 +115,8 @@ namespace Autohand {
         public Vector3 pushingStrength = new Vector3(10f, 10f, 10f);
         public float pushingAcceleration = 10f;
         public float pushingDrag = 3f;
+        [Tooltip("Inscreases the step height while pushing up to make it easier to step up onto a surface")]
+        public float pushUpStepHeightMultiplier = 1;
 
         [AutoToggleHeader("Enable Platforming")]
         [Tooltip("Platforms will move the player with them. A platform is an object with the Transform component on it")]
@@ -353,8 +358,8 @@ namespace Autohand {
 
         private void Update() {
             if(useMovement) {
-                InterpolateMovement();
                 UpdatePlatform(false);
+                InterpolateMovement();
                 UpdateTurn(Time.deltaTime);
             }
         }
@@ -367,8 +372,8 @@ namespace Autohand {
                 ApplyPushingForce();
                 ApplyClimbingForce();
                 Ground();
-                UpdatePlatform(true);
                 UpdateRigidbody(moveDirection);
+                UpdatePlatform(true);
                 UpdateTurn(Time.fixedDeltaTime);
             }
         }
@@ -618,6 +623,10 @@ namespace Autohand {
                     Vector3 stepPos;
 
                     for(int i = 0; i < groundRayCount; i++) {
+                        var maxStepHeight = this.maxStepHeight;
+                        maxStepHeight *= climbAxis.y > 0 ? climbUpStepHeightMultiplier : 1;
+                        maxStepHeight *= pushAxis.y > 0 ? pushUpStepHeightMultiplier : 1;
+
                         stepPos = transform.position;
                         stepPos.x += Mathf.Cos(i * Mathf.PI / (groundRayCount / 2)) * (scale * radius + 0.15f) * multi;
                         stepPos.z += Mathf.Sin(i * Mathf.PI / (groundRayCount / 2)) * (scale * radius + 0.15f) * multi;
@@ -667,29 +676,27 @@ namespace Autohand {
         }
 
 
-        protected void UpdatePlatform(bool isFixedUpdate) {
-            if((!ignoreIterpolationFrame || isFixedUpdate) && isGrounded && newClosestHit.transform != null && (platformingLayerMask == (platformingLayerMask | (1 << newClosestHit.collider.gameObject.layer)))) {
-                if(newClosestHit.transform != closestHit.transform) {
+        protected void UpdatePlatform(bool isFixedUpdate)
+        {
+            if ((!ignoreIterpolationFrame || isFixedUpdate) && isGrounded && newClosestHit.transform != null && (platformingLayerMask == (platformingLayerMask | (1 << newClosestHit.collider.gameObject.layer)))) {
+
+                if (newClosestHit.transform != closestHit.transform) {
                     closestHit = newClosestHit;
                     lastPlatformPosition = closestHit.transform.position;
                     lastPlatformRotation = closestHit.transform.rotation;
                 }
-                else if(newClosestHit.transform == closestHit.transform) {
-                    if(closestHit.transform.position != lastPlatformPosition) {
+                else if(newClosestHit.transform == closestHit.transform)
+                {
+                    if (closestHit.transform.position != lastPlatformPosition || closestHit.transform.rotation != lastPlatformRotation) {
                         closestHit = newClosestHit;
                         transform.position += closestHit.transform.position - lastPlatformPosition;
-                        body.position = transform.position;
 
-                        var deltaRot = (closestHit.transform.rotation * Quaternion.Inverse(lastPlatformRotation)).eulerAngles;
-                        transform.RotateAround(closestHit.transform.position, Vector3.up, deltaRot.y);
-                        //transform.RotateAround(closestHit.transform.position, Vector3.right, deltaRot.x);
-                        //transform.RotateAround(closestHit.transform.position, Vector3.forward, deltaRot.z);
+                        var deltaRot = (closestHit.transform.rotation * Quaternion.Inverse(lastPlatformRotation));
+                        transform.RotateAround(closestHit.transform.position, Vector3.up, deltaRot.eulerAngles.y);
                         body.position = transform.position;
                         body.rotation = transform.rotation;
 
-                        trackingContainer.RotateAround(closestHit.transform.position, Vector3.up, deltaRot.y);
-                        //trackingContainer.RotateAround(closestHit.transform.position, Vector3.right, deltaRot.x);
-                        //trackingContainer.RotateAround(closestHit.transform.position, Vector3.forward, deltaRot.z);
+                        trackingContainer.rotation *= deltaRot;
 
                         lastPlatformPosition = closestHit.transform.position;
                         lastPlatformRotation = closestHit.transform.rotation;
@@ -960,8 +967,6 @@ namespace Autohand {
 
             var deltaRot = rotation * Quaternion.Inverse(headCamera.transform.rotation);
             trackingContainer.RotateAround(headCamera.transform.position, Vector3.up, deltaRot.eulerAngles.y);
-            //trackingContainer.RotateAround(headCamera.transform.position, Vector3.right, deltaRot.eulerAngles.x);
-            //trackingContainer.RotateAround(headCamera.transform.position, Vector3.forward, deltaRot.eulerAngles.z);
 
             targetPosOffset = Vector3.zero;
             targetTrackedPos = new Vector3(trackingContainer.position.x, targetTrackedPos.y, trackingContainer.position.z);

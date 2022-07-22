@@ -89,7 +89,7 @@ MonoBehaviour:
   groundedDrag: 100
   snapTurning: 1
   snapTurnAngle: 30
-  smoothTurnSpeed: 10
+  smoothTurnSpeed: 50
   showHeight: 1
   heightSmoothSpeed: 30
   heightOffset: 0
@@ -110,10 +110,12 @@ MonoBehaviour:
   climbingStrength: {x: 20, y: 20, z: 20}
   climbingAcceleration: 30
   climbingDrag: 5
+  climbUpStepHeightMultiplier: 3
   allowBodyPushing: 1
   pushingStrength: {x: 10, y: 20, z: 10}
   pushingAcceleration: 10
   pushingDrag: 1
+  pushUpStepHeightMultiplier: 3
   allowPlatforms: 1
   platformingLayerMask:
     serializedVersion: 2
